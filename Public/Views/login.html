@@ -1,0 +1,40 @@
+
+<div ng-controller="userCtrl">
+    <div ng-if="!isLoggedIn">
+        <h2>Bejelentkezés</h2>
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" ng-model="user.email">
+            <label for="floatingInput">E-mail cím:</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" ng-model="user.passwd">
+            <label for="floatingPassword">Jelszó:</label>
+        </div>
+        <button class="btn btn-primary mb-3" ng-click="login()">Belépés</button>
+    </div>
+    <div ng-if="isLoggedIn">
+        <h2>Bejelentkezve</h2>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="" ng-model="loggedUser.name" disabled>
+            <label for="floatingInput">Név:</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="" ng-model="loggedUser.email" disabled>
+            <label for="floatingInput">E-mail cím:</label>
+        </div>
+        <button class="btn btn-danger mb-3" ng-click="logout()" ng-if="isLoggedIn">Kilépés</button>
+    </div>
+</div>
+
+<h2>Információk</h2>
+<h6>Intézmény neve:</h6>
+<h4>{{company}}</h4>
+<h6>Vizsgázó neve:</h6>
+<h4>{{author}}</h4>
+<h6>Évfolyam:</h6>
+<h4>{{classroom}}</h4>
+<h6>Munkaállomás:</h6>
+<h4>{{workstation}}</h4>
+ 

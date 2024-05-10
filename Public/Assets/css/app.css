@@ -1,0 +1,81 @@
+:root {
+ /* színkódok */
+}
+
+body{
+  background-color: var(--silver);
+  background-size: 100%;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.logo{
+  display: block;
+  font-size: 900%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.container{
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 25px;
+  padding: 15px;
+  margin: 15px auto;
+  box-shadow: 0 0 10px var(--gray);
+}
+
+header{
+  text-align: center;
+  background-color: var(--slategray);
+  background-size: cover;
+  color: var(--white);
+  text-shadow: 0 0 3px var(--black);
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: inset 0 0 20px black;
+}
+
+h1{
+  font-variant: small-caps;
+  font-size: 400%;
+}
+
+h2{
+  padding-bottom: 15px;
+}
+
+h3{
+  color: var(--yellow);
+}
+
+h4{
+  color: var(--blue);
+}
+
+footer{
+  background-color: var(--black);
+  color: var(--white);
+  padding: 10px;
+  font-size: 80%;
+  letter-spacing: 3px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+main{
+  padding: 15px 0;
+}
+
+p{
+  text-align: justify;
+  line-height: 200%;
+}
+
+

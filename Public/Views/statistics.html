@@ -1,0 +1,46 @@
+<h2>Statisztika</h2>
+<div class="row p-2" ng-controller="statCtrl">
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+          <h5><i class="bi bi-people-fill"></i> Felhasználók </h5>
+          <h2 class="text-body-secondary">{{stat.felhasznalok}}</h2>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+          <h5><i class="bi bi-people-fill"></i> Ügyfelek </h5>
+          <h2 class="text-body-secondary">{{stat.tulajdonosok}}</h2>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+        <h5><i class="bi bi-tools"></i> Javítások </h5>
+        <h2 class="text-body-secondary">{{stat.javitasok}}</h2>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+        <h5><i class="bi bi-bicycle"></i> Típusok </h5>
+        <h2 class="text-body-secondary">{{stat.tipusok}}</h2>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+        <h5><i class="bi bi-person-gear"></i> Szerelők </h5>
+        <h2 class="text-body-secondary">{{stat.szerelok}}</h2>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2 p-1">
+      <div class="card p-3">
+        <h5><i class="bi bi-cash-coin"></i> Bevétel ({{penznem}}) </h5>
+        <h2 class="text-body-secondary">{{stat.bevetel | number}} </h2>
+      </div>
+    </div>
+</div>
+
+<h2>Grafikon</h2>
+<div class="row p-2" ng-controller="chartCtrl">
+  <canvas id="chart"></canvas>
+</div>
+
+

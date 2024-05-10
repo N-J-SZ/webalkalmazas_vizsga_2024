@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu"                     >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{appTitle}}</title>
+    
+    <!-- stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link type="image/png" sizes="32x32" rel="icon" href="../Public/Assets/img/favicon.png">
+    <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Assets/css/app.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <i class="logo bi bi-bicycle"></i>
+            <h1>{{appTitle}}</h1>
+            <h3>{{subTitle}}</h3>
+        </header>
+        
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" ng-if="isLoggedIn">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Menü</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/list/javitasok">Javítások</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/list/tulajdonos">Tulajdonosok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/list/tipusok">Kerékpártípusok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!list/szerelok">Szerelők</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/felhasznalok">Felhasználók</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/naptar">Naptár</a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <main ng-view></main>
+            </div>
+            <div class="col-lg-4 p-3" ng-include="'Views/login.html'">  
+            </div>
+        </div>
+
+        <aside ng-if="isLoggedIn" ng-include="'Views/statistics.html'">
+        </aside>
+        
+        <footer>
+            <div>Webfejelsztés vizsgafeladat | Frontend: AngularJS | Backend: NodeJS + ExpressJS | Adatbázis: MySQL</div>
+            <div><strong>{{year}}</strong></div>
+        </footer>
+    </div>
+    
+    <!-- Scripts --> 
+    
+    <!-- Controllers -->
+
+</body>
+</html>

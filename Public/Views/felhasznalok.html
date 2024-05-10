@@ -1,0 +1,51 @@
+<h2>Felhasználók kezelése</h2>
+
+
+<h5>Új felhasználó felvétele</h5>
+<table class="table table-striped table-hovered">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" ng-model="user.name">
+        <label for="floatingInput">Név</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="" ng-model="user.email">
+        <label for="floatingInput">E-mail cím</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="" ng-model="user.passwd">
+        <label for="floatingPassword">Jelszó</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="" ng-model="user.confirm">
+        <label for="floatingPassword">Jelszó megerősítése</label>
+    </div>
+
+    <button class="btn btn-primary mb-3" ng-click="addUser()">Felvesz</button>
+
+    <h5>Felhasználók listája</h5>
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>E-mail</th>
+            <th class="text-end">Műveletek</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in users">
+            <td>{{ item.ID }}</td>
+            <td>{{ item.nev }}</td>
+            <td>{{ item.email }}</td>
+            <td class="text-end"><a href="" class="btn btn-danger btn-sm" ng-click="deleteUser(item.ID)">Törlés</a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-center">Összesen: {{users.length}} rekord</td>
+        </tr>
+    </tfoot>
+</table>
