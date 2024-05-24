@@ -1,0 +1,63 @@
+CREATE OR REPLACE VIEW statisztika AS
+select 
+(select count(0) from `kerekpar`.`felhasznalok`) AS `felhasznalok`,
+(select count(0) from `kerekpar`.`tulajdonos`) AS `tulajdonosok`,
+(select count(0) from `kerekpar`.`javitasok`) AS `javitasok`,
+(select count(0) from `kerekpar`.`szerelok`) AS `szerelok`,
+(select count(0) from `kerekpar`.`tipusok`) AS `tipusok`,
+(select sum(`kerekpar`.`javitasok`.`iranyar`) from `kerekpar`.`javitasok`) AS `bevetel`
+
+/* --------------------------------------------------------------------------------------------- */
+
+CREATE OR REPLACE VIEW javitasok_ AS
+select 
+    javitas_id as ID,	
+    szerelok.nev as 'Szerelő', 	
+    tulajdonos.nev as 'Tulajdonos',
+    datum as 'Dátum', 	
+    javido as 'Javításidő', 	
+    iranyar as 'Irányár' 	
+ FROM javitasok
+ inner join szerelok on szerelok.szerelo_id = javitasok.szerelo_id
+ inner join tulajdonos on tulajdonos.tulaj_id = javitasok.tulaj_id
+
+/* --------------------------------------------------------------------------------------------- */
+
+CREATE OR REPLACE VIEW tulajdonos_ AS
+select 
+    tulaj_id as ID,	
+    nev as 'Név', 	
+    tipusok.tipusnev as 'Kerékpártípus', 	
+    telefon as 'Telefonszám' 	
+FROM tulajdonos
+inner join tipusok on tipusok.tipus_id = tulajdonos.tipuskod
+
+/* --------------------------------------------------------------------------------------------- */
+
+CREATE OR REPLACE VIEW tipusok_ AS
+select 
+    tipus_id as 'ID',	
+    tipusnev as 'Kerékpártípus',	
+    meret as 'Méret' 	
+FROM tipusok
+
+/* --------------------------------------------------------------------------------------------- */
+
+CREATE OR REPLACE VIEW szerelok_ AS
+select 
+    szerelo_id as 'ID',	
+    nev as 'Név', 	
+    cim as 'Lakcím', 	
+    telefon as 'Telefonszám' 	
+FROM szerelok
+
+/* --------------------------------------------------------------------------------------------- */
+
+CREATE OR REPLACE VIEW grafikon AS
+select 
+    Month(datum) as 'honap', 
+    SUM(iranyar) as 'osszeg'	
+FROM javitasok
+group by Month(datum)
+
+/* --------------------------------------------------------------------------------------------- */
